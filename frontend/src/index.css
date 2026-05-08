@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+    /* Color mapping from CSS variables */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-tertiary: var(--tertiary);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-destructive: var(--destructive);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    /* Radius mapping */
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+
+    /* Font mapping */
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Montserrat", sans-serif;
+    /* --font-serif: "Playfair Display", serif; */
+
+    /* Custom Animations */
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes fade-in-up {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scale-in {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    --animate-fade-in: fade-in 0.5s ease-out forwards;
+    --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
+    --animate-scale-in: scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+:root {
+    --background: #F9F7F2;
+    --foreground: #333333;
+    --primary: #C5A059;
+    /* Brand Gold */
+    --primary-foreground: #FFFFFF;
+    --secondary: #4A4A4A;
+    --secondary-foreground: #FFFFFF;
+    --tertiary: #E8E3D8;
+    --muted: #F5F2EA;
+    --muted-foreground: #777777;
+    --accent: #F5F2EA;
+    --card: #FFFFFF;
+    --card-foreground: #333333;
+    --destructive: #D9534F;
+    --border: #E8E3D8;
+    --input: #E8E3D8;
+    --ring: #C5A059;
+    --radius: 1rem;
+}
+
+.dark {
+    --background: #0f1115;
+    --foreground: #f8fafc;
+    --primary: #C5A059;
+    --primary-foreground: #ffffff;
+    --secondary: #1e293b;
+    --secondary-foreground: #f8fafc;
+    --tertiary: #1a1f28;
+    --muted: #1e2532;
+    --muted-foreground: #94a3b8;
+    --accent: #1e293b;
+    --card: #171923;
+    --card-foreground: #f8fafc;
+    --destructive: #D9534F;
+    --border: #2a3241;
+    --input: #2a3241;
+    --ring: #C5A059;
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-background text-foreground font-sans antialiased;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+
+    ::selection {
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+    }
+}
+
+@layer utilities {
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+/* Swiper Customization */
+.testimonial-swiper {
+    padding-bottom: 60px !important;
+}
+
+.testimonial-swiper .swiper-pagination-bullet {
+    background: var(--primary) !important;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.testimonial-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 20px !important;
+    border-radius: 4px !important;
+}
+
+.testimonial-swiper .swiper-slide {
+    height: auto !important;
+}
