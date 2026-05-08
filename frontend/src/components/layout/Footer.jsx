@@ -41,30 +41,16 @@ function Footer() {
                     </p>
 
                     <div className="flex items-center gap-3">
-                        {socialLinks && socialLinks.length > 0 ? (
-                            socialLinks.map((link) => (
-                                <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm"
-                                    title={link.platform_name}>
-                                    <iconify-icon icon={link.icon || 'lucide:share-2'} className="text-xl"></iconify-icon>
-                                </a>
-                            ))
-                        ) : (
-                            <>
-                                <a href={settings?.instagram_url || "#"} target="_blank" rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm">
-                                    <iconify-icon icon="lucide:instagram" className="text-xl"></iconify-icon>
-                                </a>
-                                <a href={settings?.facebook_url || "#"} target="_blank" rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm">
-                                    <iconify-icon icon="lucide:facebook" className="text-xl"></iconify-icon>
-                                </a>
-                                <a href={settings?.youtube_url || "#"} target="_blank" rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm">
-                                    <iconify-icon icon="lucide:youtube" className="text-xl"></iconify-icon>
-                                </a>
-                            </>
-                        )}
+                        {socialLinks && socialLinks.length > 0 && socialLinks.map((link) => (
+                            <a key={link.id} href={link.url} target="_blank" rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 shadow-sm"
+                                title={link.platform_name}>
+                                <div 
+                                    className="w-5 h-5 flex items-center justify-center fill-current"
+                                    dangerouslySetInnerHTML={{ __html: link.custom_icon_svg }}
+                                />
+                            </a>
+                        ))}
                     </div>
                 </div>
 

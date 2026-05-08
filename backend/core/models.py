@@ -122,9 +122,6 @@ class SiteSetting(models.Model):
     # Social & WhatsApp
     whatsapp_number = models.CharField(max_length=20, blank=True)
     whatsapp_message = models.CharField(max_length=200, blank=True, default='Hi Bipin Decor, I need a consultation.')
-    facebook_url = models.URLField(blank=True)
-    instagram_url = models.URLField(blank=True)
-    youtube_url = models.URLField(blank=True)
     
     # SEO
     seo_title = models.CharField(max_length=100, blank=True, default='Bipin Interior | Premium Decor Studio')
@@ -283,7 +280,7 @@ class Testimonial(models.Model):
 class SocialLink(models.Model):
     platform_name = models.CharField(max_length=50)
     url = models.URLField()
-    icon = models.CharField(max_length=100, help_text="Iconify icon name e.g. lucide:twitter, mdi:telegram")
+    custom_icon_svg = models.TextField(help_text="Paste raw SVG code here")
     is_active = models.BooleanField(default=True)
     order = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
