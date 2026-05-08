@@ -78,7 +78,7 @@ function Services() {
         <main className="flex-grow flex flex-col w-full">
 
             {/* Page Header */}
-            <section className="py-24 px-6 bg-slate-900 text-white text-center relative overflow-hidden">
+            <section className="relative min-h-[450px] flex items-center justify-center py-20 px-6 bg-slate-900 text-white text-center overflow-hidden">
                 <motion.div
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 0.1 }}

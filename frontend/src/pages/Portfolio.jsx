@@ -150,7 +150,7 @@ function Portfolio() {
     return (
         <main className="flex-grow flex flex-col w-full">
             {/* Page Header */}
-            <section className="py-24 px-6 bg-slate-900 text-white text-center relative overflow-hidden">
+            <section className="relative min-h-[450px] flex items-center justify-center py-20 px-6 bg-slate-900 text-white text-center overflow-hidden">
                 <div
                     style={{ backgroundImage: `url(${settings?.portfolio_hero_image_url || "https://placehold.co/1920x600/1a1a1a/C5A059?text=Our+Portfolio"})` }}
                     className="absolute inset-0 opacity-10 bg-cover bg-center">
