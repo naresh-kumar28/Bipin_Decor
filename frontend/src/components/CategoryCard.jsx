@@ -29,7 +29,7 @@ function CategoryCard({ category }) {
     if (isHovered && displayImages.length > 1) {
       intervalRef.current = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % displayImages.length);
-      }, 2000); 
+      }, 1200); 
     } else {
       clearInterval(intervalRef.current);
       setCurrentImageIndex(0);
@@ -53,7 +53,7 @@ function CategoryCard({ category }) {
               key={idx}
               src={img}
               alt={`${category.name || 'Category'} ${idx}`}
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 transform z-0
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 transform z-0
                 ${idx === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}
                 ${isHovered ? 'scale-105' : 'scale-100'}
               `}
