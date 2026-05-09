@@ -177,3 +177,11 @@ backend-drf/.env.docker
 backend-drf/.env.production
 backend-drf/Dockerfile
 docker-compose.yml
+
+
+.env
+.env.production
+.env.docker
+db.sqlite3
+media/
+staticfiles/
