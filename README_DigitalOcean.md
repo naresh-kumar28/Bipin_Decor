@@ -346,18 +346,25 @@ CMD ["nginx", "-g", "daemon off;"]
 
 Create `nginx.conf` inside `/frontend/`:
 
-```nginx
+```
 server {
     listen 80;
-    server_name _;
-
-    root /usr/share/nginx/html;
-    index index.html;
+    server_name localhost;
 
     location / {
-        try_files $uri /index.html;
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Optional: Handle error pages
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
     }
 }
+
+
 ```
 
 ---
